@@ -203,6 +203,16 @@ main {
             border: none;
         }
 
+
+        #contact-form button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 15px;
+            margin-top: 50px;
+            border: none;
+        }
+
+
 .form-div {
     margin-bottom: 20px;
     border: 1px solid #ccc;
