@@ -6,6 +6,7 @@ namespace JobZila.Pages
 {
     public class AddJobModel : PageModel
     {
+        
         [BindProperty]
         public string Title { get; set; }
         [BindProperty]
@@ -26,8 +27,7 @@ namespace JobZila.Pages
 
         public void OnGet()
         {
-            string abc = "Sadeed";
-            return abc;
+            
 
             
         }
