@@ -2,7 +2,7 @@
 {
     public class Jobs
     {
-        public int jodid { get; set; }
+        public int id { get; set; }
         public string title { get; set; }
         public  string  company { get; set; }
 

@@ -12,10 +12,18 @@ namespace JobZila.Pages
         [BindProperty]
         public string Company { get; set; }
         [BindProperty]
-        public string? Description { get; set; }
+        public string Description { get; set; }
         [BindProperty]
         public string City { get; set; }
 
+
+        private ApplicationDBContext _context;
+        public AddJobModel(ApplicationDBContext context)
+        {
+
+            _context = context;
+
+        }
 
 
         //[BindProperty]
@@ -34,17 +42,30 @@ namespace JobZila.Pages
 
         public IActionResult OnPost()
         {
-            string myValues = $"{Title} - {Company} - {Description} - {City}";
+           // string myValues = $"{Title} - {Company} - {Description} - {City}";
 
             //string myValues = $"{jobs.title} - {jobs.company} - {jobs.description} - {jobs.city}";
 
 
             if (!ModelState.IsValid)
             {
+
+
                 return Page();
             }
+
+
+            var job = new Jobs()
+            {
+            title = Title,
+            company = Company,
+            description = Description,
+            city = City
+
+            };
             
-            
+            _context.jobs.Add(job);
+            _context.SaveChanges();
             
             
             return Redirect("JobListing");

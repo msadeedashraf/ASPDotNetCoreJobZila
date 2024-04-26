@@ -4,22 +4,24 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace JobZila.Pages
 {
-    public class JobListingModel : PageModel
+    public class JobModel : PageModel
     {
-        public List<Jobs> Job { get; set; }
+    
+        public Jobs? job { get; set; }
+
 
         private ApplicationDBContext _context;
-        public JobListingModel(ApplicationDBContext context)
+        public JobModel(ApplicationDBContext context)
         {
 
             _context = context;
 
         }
 
-        public void OnGet()
+        public void OnGet(int id)
         {
-            Job =  _context.jobs.ToList();
 
+            job = _context.jobs.FirstOrDefault(n => n.id == id);
         }
     }
 }

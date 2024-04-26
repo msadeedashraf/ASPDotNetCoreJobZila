@@ -1,0 +1,22 @@
+﻿@page "{id:int}"
+@model JobZila.Pages.JobModel
+@{
+}
+
+
+
+<h2>Job @Model.job.id</h2>
+
+
+
+
+
+<div class="job-listing">
+    <h3>@Model.job?.title</h3>
+    <p>@Model.job?.company</p>
+    <p>@Model.job?.city</p>
+    <p>
+        @Model.job?.description
+    </p>
+    <p><a href="/JobListing">Go Back</a></p>
+</div>
